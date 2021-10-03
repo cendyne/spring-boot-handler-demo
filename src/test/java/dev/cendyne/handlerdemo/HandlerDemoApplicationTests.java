@@ -38,11 +38,11 @@ class HandlerDemoApplicationTests {
 		assertThat(restTemplate.getForObject("http://localhost:" + port + "/api/endpoint", String.class)).doesNotContain("this is a test");
 	}
 
-//	@Test
-//	void resourcesWork() {
-//		// Resources are not affected
-//		dynamicFrontend.addHtml("/robots.txt", "this is a test");
-//		assertThat(restTemplate.getForObject("http://localhost:" + port + "/robots.txt", String.class)).contains("Disallow");
-//		assertThat(restTemplate.getForObject("http://localhost:" + port + "/robots.txt", String.class)).doesNotContain("this is a test");
-//	}
+	@Test
+	void resourcesWork() {
+		// Resources are not affected
+		dynamicFrontend.addHtml("/robots.txt", "this is a test");
+		assertThat(restTemplate.getForObject("http://localhost:" + port + "/robots.txt", String.class)).contains("Disallow");
+		assertThat(restTemplate.getForObject("http://localhost:" + port + "/robots.txt", String.class)).doesNotContain("this is a test");
+	}
 }
